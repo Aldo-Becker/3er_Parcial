@@ -6,4 +6,39 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Content Remove="Pages\Login.razor" />
+    <Content Remove="Pages\MisUsuarios\EditarUsuario.razor" />
+    <Content Remove="Pages\MisUsuarios\Usuarios.razor" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Datos\Datos.csproj" />
+    <ProjectReference Include="..\Modelos\Modelos.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <UpToDateCheckInput Remove="Pages\MisUsuarios\Usuarios.razor" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <_ContentIncludedByDefault Remove="Pages\Login.razor" />
+    <_ContentIncludedByDefault Remove="Pages\MisUsuarios\EditarUsuario.razor" />
+    <_ContentIncludedByDefault Remove="Pages\MisUsuarios\Usuarios.razor" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="Pages\Login.razor" />
+    <None Include="Pages\MisUsuarios\EditarUsuario.razor" />
+    <None Include="Pages\MisUsuarios\Usuarios.razor" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <UpToDateCheckInput Remove="Pages\MisUsuarios\EditarUsuario.razor" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <UpToDateCheckInput Remove="Pages\Login.razor" />
+  </ItemGroup>
+
 </Project>
