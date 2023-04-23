@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Components;
 using Modelos;
 
-namespace Blazor.Pages.MisUsuarios
+namespace Blazor.Pages.MisUsuarios2
 {
     public partial class Usuarios
     {
@@ -10,10 +10,9 @@ namespace Blazor.Pages.MisUsuarios
 
         private IEnumerable<Usuario> lista { get; set; }
 
-        //quitar override despues del protected
         protected override async Task OnInitializedAsync()
         {
             lista = await usuarioServicio.GetListaAsync();
         }
-    }  
+    }
 }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,10 +9,15 @@ namespace Modelos
 {
     public class Usuario
     {
+        [Required(ErrorMessage = "El Código es Requerido")]
         public string CodigoUsuario { get; set; }
+
+        [Required(ErrorMessage = "El Nombre es Requerido")]
         public string Nombre { get; set; }
-        public string Contraseña { get; set; }
+        public string Contrasena { get; set; }
         public string Correo { get; set; }
+
+        [Required(ErrorMessage = "El Rol es Requerido")]
         public string Rol { get; set; }
         public byte[] Foto { get; set; }
         public DateTime FechaCreacion { get; set; }
@@ -21,11 +27,11 @@ namespace Modelos
         {
         }
 
-        public Usuario(string codigoUsuario, string nombre, string contraseña, string correo, string rol, byte[] foto, DateTime fechaCreacion, bool estaActivo)
+        public Usuario(string codigoUsuario, string nombre, string contrasena, string correo, string rol, byte[] foto, DateTime fechaCreacion, bool estaActivo)
         {
             CodigoUsuario = codigoUsuario;
             Nombre = nombre;
-            Contraseña = contraseña;
+            Contrasena = contrasena;
             Correo = correo;
             Rol = rol;
             Foto = foto;

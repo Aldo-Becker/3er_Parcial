@@ -1,9 +1,8 @@
-//using Blazor.Data;
 using Blazor;
 using Blazor.Interfaces;
 using Blazor.Servicios;
-using Microsoft.AspNetCore.Components;
-using Microsoft.AspNetCore.Components.Web;
+using CurrieTechnologies.Razor.SweetAlert2;
+using Microsoft.AspNetCore.Authentication.Cookies;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -16,8 +15,12 @@ builder.Services.AddSingleton(cadena);
 
 builder.Services.AddScoped<ILoginServicio, LoginServicio>();
 builder.Services.AddScoped<IUsuarioServicio, UsuarioServicio>();
-
-
+builder.Services.AddScoped<IProductoServicio, ProductoServicio>();
+builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie();
+builder.Services.AddHttpContextAccessor();
+builder.Services.AddResponseCompression();
+builder.Services.AddControllers();
+builder.Services.AddSweetAlert2();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -31,9 +34,11 @@ if (!app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 
 app.UseStaticFiles();
-
+app.UseResponseCompression();
 app.UseRouting();
-
+app.UseAuthentication();
+app.UseAuthorization();
+app.MapControllers();
 app.MapBlazorHub();
 app.MapFallbackToPage("/_Host");
 
